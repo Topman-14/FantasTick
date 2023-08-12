@@ -1,0 +1,153 @@
+:root {
+    --primary: #3c9f0e;
+    --secondary: #ff9b04;
+    --error: #e7195a;
+    --primary-text: #034603;
+    --secondary-text: #059b7d;
+    --tertiary-text: #e1e1e1;
+    --bg: #fff;
+    --bg-2: #f6e8c8;
+    --primary-font: 'Josefin Sans', sans-serif;
+}
+body {
+    margin: 0;
+    background-color: var(--bg);
+    font-family: var(--primary-font);
+    background: url('/bg.svg');
+    background-size: cover;
+}
+a{
+    color: var(--primary);
+    text-decoration: none;
+}
+.pages{
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.nav_main{
+    background: #dcfed0;
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.219);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-top: 10px;
+}
+.home_link{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.home_link >  h1{
+    padding: 15px 10px 15px 18px;
+    margin: 0px 0px;
+    color: var(--primary);
+}
+.home_link > h1 > span{
+    color: var(--secondary) !important;
+}
+
+.nav_line_decor{
+    height: 5px;
+    background-color: var(--secondary);
+}
+.logo{
+    height: 30px;
+    padding-bottom: 10px;
+}
+.home > h1{
+    text-align: center;
+    margin: 35px 0 75px 0;
+    color: #034603;
+    animation: fade-up 1s;
+}
+.items_wrapper{
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fade-up 2s;
+}
+.item_body{
+    height: 90px;
+    background: #ffffff82;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.308);
+    border-radius: 15px;
+    padding: 12px 10px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.item_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 450px;
+}
+.item_title{
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--primary);
+}
+.item_desc{
+    margin: 10px 0 auto 0;
+    color: #313131;
+}
+.time_stamp{
+    font-size: 0.8em;
+    color: #808080;
+    margin: 0;
+}
+.btns{
+    display: flex;
+    gap: 5px;
+    height: 55px;
+    margin: auto 10px auto 0;
+}
+.btns button{
+    padding: 4px 6px 2px 6px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 900;
+    transition: 0.2s;
+}
+.btns button:hover{
+    scale: 1.1;
+}
+.tick_btn{
+    background: #fff;
+    color: #3c9f0e;
+    height: 100%;
+    width: 50px; 
+    font-size: 1.5em !important;
+    border: 1.5px solid #3c9f0e !important;
+}
+.ticked{
+    background: #3c9f0e;
+    color: #fff;
+}
+.other_btns{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.edit_btn{
+    background: #ff9b04;
+    color: #fff;
+}
+.delete_btn{
+    background: #e7195a;
+    color: #fff;
+}
+
+@keyframes fade-up {
+    0%{
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
