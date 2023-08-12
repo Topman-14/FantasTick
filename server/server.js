@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const cors = require('cors');
+
 const listItemRoutes = require('./routes/list_item');
 
 const express = require('express');
@@ -7,6 +9,8 @@ const mongoose = require('mongoose');
 
 //create express app
 const app = express();
+
+app.use(cors());
 
 //middleware
 app.use(express.json())
@@ -33,5 +37,6 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(err);
     })
 
+   
 
   
