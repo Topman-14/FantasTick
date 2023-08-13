@@ -1,5 +1,7 @@
+import React from 'react'
 import { useEffect, useState } from "react"
 import Item from "../components/Item";
+import NewItemForm from '../components/NewItemForm';
 export default function Home() {
 
   const [items, setItems] = useState(null);
@@ -18,6 +20,7 @@ export default function Home() {
 
     fetchItems();
   }, [])
+  
   return (
     <div className='home'>
       { items && <h1>Welcome John Doe, You have {items? items.length : "no" } {items.length > 1? "items" : "item"} in your list!</h1>}
