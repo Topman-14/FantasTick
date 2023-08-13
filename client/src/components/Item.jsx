@@ -1,3 +1,4 @@
+import React from 'react'
 import { SlTrash, SlPencil } from "react-icons/sl"
 import { BsCheckLg } from "react-icons/bs"
 

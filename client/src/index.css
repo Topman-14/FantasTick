@@ -26,17 +26,55 @@ a{
     margin: 0 auto;
 }
 
+.alert_body{
+    position: fixed;
+    top: 30px;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    animation: pop-down 5s;
+    padding-left: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.299);
+}
+.alert_text{
+    background: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.alert_text>p{margin: 0;}
+
 .nav_main{
     background: #dcfed0;
     box-shadow: 0 0 11px rgba(0, 0, 0, 0.219);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .home_link{
     display: flex;
     /* justify-content: center; */
     align-items: center;
+}
+.add_item_btn{
+    background: #3c9f0e;
+    color: #fff;
+    margin: 0 30px 10px 0;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--primary-font);
+    padding: 16px 12px 14px 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.add_item_btn:hover{
+    scale: 1.07;
 }
 .home_link >  h1{
     padding: 15px 10px 15px 18px;
@@ -141,6 +179,85 @@ a{
     color: #fff;
 }
 
+.form_wrapper{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff32;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item_form{
+    height: 300px;
+    width: 400px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.203);
+}
+.item_form>h2{
+    margin: 10px 0 0 0;
+}
+.item_form > div{
+    font-size: 1.15em;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #717171;
+}
+
+.add_item_inputs{
+    font-size: 1.0em;
+    font-family: var(--primary-font);
+    border: none;
+    background: #bdffd1;
+    padding: 8px !important;
+    border-radius: 8px;
+}
+.add_item_inputs:focus{
+    outline: 0px;
+}
+#form_add_btn{
+    font-size: 1.2em;
+    padding: 10px;
+    background: #3c9f0e;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--primary-font);
+    font-weight: 700;
+
+}
+
+@keyframes pop-down {
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+        scale: 0.7;
+    }
+    5%{
+        opacity: 1;
+        transform: translateY(0px);
+        scale: 1;
+    }
+    95%{
+        opacity: 1;
+        transform: translateY(0px);
+        scale: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-100px);
+        scale: 0.7;
+    }
+}
 @keyframes fade-up {
     0%{
         opacity: 0;
