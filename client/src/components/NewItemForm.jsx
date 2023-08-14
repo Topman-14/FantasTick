@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from "react"
 import Alert from './Alert';
 import { IoClose } from "react-icons/io5";
+import { useItemsContext } from '../hooks/useItemsContext';
+
 
 export default function NewItemForm(props) {
     const [title, setTitle] = useState('');
@@ -10,6 +12,7 @@ export default function NewItemForm(props) {
     const [response, setResponse] = useState({
         isRecieved: false
     });
+    const {dispatch} = useItemsContext()
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -29,7 +32,6 @@ export default function NewItemForm(props) {
             text:json.error
             })
             setTimeout(()=>{setResponse({isRecieved:false})}, 4800)
-
         }
         if(res.ok){
             setTitle('')
@@ -42,7 +44,8 @@ export default function NewItemForm(props) {
             setTimeout(()=>{
                 setResponse({isRecieved:false})
                 props.handleClick();
-            }, 2000)
+            }, 1000)
+            dispatch({type: 'CREATE_ITEM', payload: json})
         }
     }
   return (
