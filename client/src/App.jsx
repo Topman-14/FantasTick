@@ -9,11 +9,14 @@ import NewItemForm from './components/NewItemForm'
 function App() {
   const [isBtnClicked, setIsBtnClicked] = useState(false)
 
+  const openItemForm = ()=>{setIsBtnClicked(true)}
+  const closeItemForm = ()=>{setIsBtnClicked(false)}
+
   return (
     <div className='App'>
       <BrowserRouter>
-      <Navbar handleClick={()=>{setIsBtnClicked(true)}}/>
-      {isBtnClicked && <NewItemForm />}
+      <Navbar handleClick={openItemForm}/>
+      {isBtnClicked && <NewItemForm handleClick={closeItemForm}/>}
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />

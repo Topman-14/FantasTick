@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from "react"
 import Alert from './Alert';
+import { IoClose } from "react-icons/io5";
 
-export default function NewItemForm() {
+export default function NewItemForm(props) {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     const [checked] = useState(false);
@@ -40,14 +41,16 @@ export default function NewItemForm() {
             })
             setTimeout(()=>{
                 setResponse({isRecieved:false})
-                
-            }, 4800)
+                props.handleClick();
+            }, 2000)
         }
     }
   return (
     <div className="form_wrapper">
 
         {response.isRecieved && <Alert type={response.type} text={response.text}/>}
+
+        <div className="form_closeBtn" onClick={props.handleClick}><IoClose/></div>
         
         <form className='item_form' onSubmit={handleSubmit}>
         
