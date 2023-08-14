@@ -10,7 +10,7 @@ export const itemsReducer =(state, action) => {
             }
         case 'CREATE_ITEM':
             return{
-                items: [action.payload, ...state.workouts]
+                items: [action.payload, ...state.items]
             }
         default:
             return state
@@ -18,10 +18,11 @@ export const itemsReducer =(state, action) => {
 }
 
 
-const ItemsContextProvider = ({ children }) =>{
+export const ItemsContextProvider = ({ children }) =>{
     const [state, dispatch] = useReducer(itemsReducer, {
         items:null
     })
+    
     return(
         <ItemsContext.Provider value={{...state, dispatch}}>
             { children }

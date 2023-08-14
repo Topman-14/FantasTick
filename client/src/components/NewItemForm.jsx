@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react"
 import Alert from './Alert';
+import { useItemsContext } from '../hooks/useItemsContext';
 
 export default function NewItemForm() {
     const [title, setTitle] = useState('');
@@ -9,6 +10,7 @@ export default function NewItemForm() {
     const [response, setResponse] = useState({
         isRecieved: false
     });
+    const {dispatch} = useItemsContext()
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -28,7 +30,6 @@ export default function NewItemForm() {
             text:json.error
             })
             setTimeout(()=>{setResponse({isRecieved:false})}, 4800)
-
         }
         if(res.ok){
             setTitle('')
@@ -40,8 +41,8 @@ export default function NewItemForm() {
             })
             setTimeout(()=>{
                 setResponse({isRecieved:false})
-                
             }, 4800)
+            dispatch({type: 'CREATE_ITEM', payload: json})
         }
     }
   return (
