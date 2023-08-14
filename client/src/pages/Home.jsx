@@ -1,10 +1,11 @@
 import React from 'react'
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useItemsContext } from '../hooks/useItemsContext'
 import Item from "../components/Item";
-import NewItemForm from '../components/NewItemForm';
+
 export default function Home() {
 
-  const [items, setItems] = useState(null);
+  const {items, dispatch} = useItemsContext()
 
   useEffect(()=>{
     const fetchItems = async () => {
@@ -12,7 +13,7 @@ export default function Home() {
       const json = await response.json();
       
       if(response.ok){
-        setItems(json)
+        dispatch({type: 'SET_ITEMS', payload: json})
       } else{
         console.log('Bros, this network is not networking')
       }
