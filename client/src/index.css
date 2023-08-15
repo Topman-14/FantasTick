@@ -28,8 +28,9 @@ a{
 
 .alert_body{
     position: fixed;
+    z-index: 30;
     top: 40px;
-    left: 36%;
+    left: 38%;
     right: 35%;
     width: 300px;
     height: 50px;
@@ -203,6 +204,7 @@ a{
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.203);
+    animation: fade-up 1.2s;
 }
 .item_form>h2{
     margin: 10px 0 0 0;
@@ -235,9 +237,15 @@ a{
     border-radius: 10px;
     font-family: var(--primary-font);
     font-weight: 700;
-
 }
-
+.form_closeBtn{
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    color: #0d3c04;
+    font-size: 3em;
+    animation: fade-up 0.5s;
+}
 @keyframes pop-down {
     0%{
         opacity: 0;
