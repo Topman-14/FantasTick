@@ -13,7 +13,7 @@ const itemSchema = new Schema({
     },
     ischecked: {
         type: Boolean,
-        required: false
+        required: true
     }
 }, { timestamps: true })
 

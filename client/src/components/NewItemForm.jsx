@@ -8,10 +8,11 @@ import { AlertContext } from '../context/alertContext';
 export default function NewItemForm(props) {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
-    const [checked] = useState(false);
     const {dispatch} = useItemsContext();
     const {showAlert} = useContext(AlertContext);
-
+    
+    const [checked, setChecked] = useState('false');
+    
     const handleSubmit = async (e) =>{
         e.preventDefault()
         const item = {title, desc, checked}
