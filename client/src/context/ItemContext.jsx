@@ -16,6 +16,10 @@ export const itemsReducer =(state, action) => {
             return{
                 items: state.items.filter((item)=> item._id !== action.payload._id)
             }
+        case 'UPDATE_ITEM':
+            return{
+                items: [action.payload, ...state.items.filter((item)=> item._id !== action.payload._id)]
+            }
         default:
             return state
     }
