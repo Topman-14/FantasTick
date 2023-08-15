@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import NewItemForm from './components/NewItemForm'
+import Alert from './components/Alert'
+import { AlertContext } from './context/alertContext'
 
 function App() {
   const [isBtnClicked, setIsBtnClicked] = useState(false)
@@ -10,16 +12,22 @@ function App() {
   const openItemForm = ()=>{setIsBtnClicked(true)}
   const closeItemForm = ()=>{setIsBtnClicked(false)}
 
+  const{isRecieved, type, text} = useContext(AlertContext)
+
+  if (isRecieved){
+    
+  }
   return (
     <div className='App'>
       <BrowserRouter>
-      <Navbar handleClick={openItemForm}/>
-      {isBtnClicked && <NewItemForm handleClick={closeItemForm}/>}
-        <div className="pages">
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </div>
+        {isRecieved && <Alert type={type} text={text}/>}
+        <Navbar handleClick={openItemForm}/>
+          {isBtnClicked && <NewItemForm handleClick={closeItemForm}/>}
+          <div className="pages">
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </div>
       </BrowserRouter>
     </div>
   )
