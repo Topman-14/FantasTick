@@ -4,13 +4,18 @@ export const AlertContext = createContext();
 
 class AlertContextProvider extends Component {
     state = { 
-        isRecieved: true,
-        type:"error",
-        text:"hello"
-     } 
+        isRecieved: false,
+        type:"",
+        text:""
+     }
+    showAlert = (type, text) =>{
+        this.setState({isRecieved: true, type: type, text: text})
+        setTimeout(()=>{this.setState({isRecieved: false})}, 3400)
+    } 
     render() { 
         return (
-        <AlertContext.Provider value={{...this.state}}>
+        <AlertContext.Provider 
+        value={{...this.state, showAlert: this.showAlert}}>
             {this.props.children}
         </AlertContext.Provider>
         );

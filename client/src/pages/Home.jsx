@@ -20,7 +20,7 @@ export default function Home() {
     }
 
     fetchItems();
-  }, [])
+  }, [dispatch])
   
   return (
     <div className='home'>
