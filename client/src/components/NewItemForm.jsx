@@ -1,18 +1,16 @@
 import React from 'react'
-import { useState } from "react"
-import Alert from './Alert';
+import { useState, useContext } from "react"
 import { IoClose } from "react-icons/io5";
 import { useItemsContext } from '../hooks/useItemsContext';
+import { AlertContext } from '../context/alertContext';
 
 
 export default function NewItemForm(props) {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     const [checked] = useState(false);
-    const [response, setResponse] = useState({
-        isRecieved: false
-    });
-    const {dispatch} = useItemsContext()
+    const {dispatch} = useItemsContext();
+    const {showAlert} = useContext(AlertContext);
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -26,32 +24,18 @@ export default function NewItemForm(props) {
         })
         const json = await res.json();
         if(!res.ok){
-            setResponse({
-            isRecieved: true,
-            type:"error",
-            text:json.error
-            })
-            setTimeout(()=>{setResponse({isRecieved:false})}, 4800)
+            showAlert("error", json.error)
         }
         if(res.ok){
             setTitle('')
             setDesc('')
-            setResponse({
-                isRecieved: true,
-                type:"confirmation",
-                text:"Item added successfully!"
-            })
-            setTimeout(()=>{
-                setResponse({isRecieved:false})
-                props.handleClick();
-            }, 1000)
+            showAlert("", "Item added successfully!")
             dispatch({type: 'CREATE_ITEM', payload: json})
+            props.handleClick()
         }
     }
   return (
     <div className="form_wrapper">
-
-        {response.isRecieved && <Alert type={response.type} text={response.text}/>}
 
         <div className="form_closeBtn" onClick={props.handleClick}><IoClose/></div>
         

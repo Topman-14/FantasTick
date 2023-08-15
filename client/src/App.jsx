@@ -14,18 +14,20 @@ function App() {
 
   const{isRecieved, type, text} = useContext(AlertContext)
 
+  if (isRecieved){
+    
+  }
   return (
     <div className='App'>
       <BrowserRouter>
-        
-          {isRecieved && <Alert type={type} text={text}/>}
-          <Navbar handleClick={openItemForm}/>
-            {isBtnClicked && <NewItemForm handleClick={closeItemForm}/>}
-            <div className="pages">
-              <Routes>
-                <Route path="/" element={<Home />} />
-              </Routes>
-            </div>
+        {isRecieved && <Alert type={type} text={text}/>}
+        <Navbar handleClick={openItemForm}/>
+          {isBtnClicked && <NewItemForm handleClick={closeItemForm}/>}
+          <div className="pages">
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </div>
       </BrowserRouter>
     </div>
   )
