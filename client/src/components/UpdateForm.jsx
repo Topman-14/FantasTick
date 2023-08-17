@@ -6,10 +6,10 @@ import { useItemsContext } from '../hooks/useItemsContext';
 
 
 const UpdateForm = (props) => {
+    const { showAlert } = useContext(AlertContext)
     const [title, setTitle] = useState(props.title)
     const [desc, setDesc] = useState(props.desc)
     const [isChecked] = useState(props.ischecked)
-    const {showAlert} = useContext(AlertContext)
     const {dispatch} = useItemsContext();
 
     const handleSubmit = async (e) =>{

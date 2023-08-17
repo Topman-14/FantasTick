@@ -20,6 +20,10 @@ export const itemsReducer =(state, action) => {
             return{
                 items: [action.payload].concat(state.items.filter((item)=> item._id !== action.payload._id))
             }
+        case 'TICK_ITEM':
+            return{
+                items: state.items.filter((item)=> item._id !== action.payload._id).concat([action.payload])
+            }
         default:
             return state
     }
