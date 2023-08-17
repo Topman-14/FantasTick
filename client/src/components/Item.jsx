@@ -29,28 +29,33 @@ export default function Item({ item }) {
   }
 
   const [ischecked, setischecked] = useState(item.ischecked)
-  console.log(ischecked, "before tick")
-
-  const tickItem = async () =>{
-    setischecked((prevChecked)=> prevChecked == "true"? "false" : "true")
-    const itemObj = {ischecked}
-    console.log(ischecked, "after tick")
-    const res = await fetch(`http://localhost:4000/api/items/${item._id}`, {
+  
+  const tickItem = async () => {
+    const newIsChecked = ischecked === "true" ? "false" : "true";
+  
+    try {
+      const res = await fetch(`http://localhost:4000/api/items/${item._id}`, {
         method: 'PATCH',
-        body: JSON.stringify(itemObj),
+        body: JSON.stringify({ ischecked: newIsChecked }),
         headers: {
-            'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
         }
-    })
-    const json = await res.json();
-    if(!res.ok){
-        showAlert("error", json.error)
+      });
+  
+      if (!res.ok) {
+        const json = await res.json();
+        showAlert("error", json.error);
+        return;
+      }
+  
+      showAlert("", `Item ${newIsChecked === "true" ? "ticked" : "unticked"}!`);
+      dispatch({ type: 'TICK_ITEM', payload: { ...item, ischecked: newIsChecked } });
+      setischecked(newIsChecked); // Update the local state
+    } catch (error) {
+      showAlert("error", "An error occurred while ticking the item.");
     }
-    if(res.ok){
-        showAlert("", `Item ${ischecked=="false" ? "ticked" : "unticked"}!`)
-        dispatch({type: 'TICK_ITEM', payload: {...json, ischecked}})
-    }
-}
+  };
+  
 
   const [isEditClicked, setIsEditClicked] = useState(false)
 
