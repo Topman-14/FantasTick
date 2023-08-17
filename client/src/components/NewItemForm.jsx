@@ -8,12 +8,14 @@ import { AlertContext } from '../context/alertContext';
 export default function NewItemForm(props) {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
-    const [checked] = useState(false);
     const {dispatch} = useItemsContext();
     const {showAlert} = useContext(AlertContext);
-
+    const [checked, setChecked] = useState("");
+    
+    
     const handleSubmit = async (e) =>{
         e.preventDefault()
+        setChecked(false)
         const item = {title, desc, checked}
         const res = await fetch('http://localhost:4000/api/items/', {
             method: 'POST',
