@@ -29,9 +29,7 @@ const UpdateForm = (props) => {
         }
         if(res.ok){
             showAlert("", "Item updated successfully!")
-            dispatch({type: 'UPDATE_ITEM', payload: {...json, }})
-            console.log(json)
-            console.log(props.ischecked)
+            dispatch({type: 'UPDATE_ITEM', payload: {...json, title, desc}})
             props.handleClose()
         }
     }

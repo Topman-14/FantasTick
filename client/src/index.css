@@ -224,9 +224,12 @@ a{
     background: #bdffd1;
     padding: 8px !important;
     border-radius: 8px;
+    border-bottom: 2px solid rgba(0, 128, 0, 0);
+    transition: 0.2s;
 }
 .add_item_inputs:focus{
     outline: 0px;
+    border-bottom: 2px solid green;
 }
 #form_add_btn{
     font-size: 1.2em;
@@ -237,8 +240,14 @@ a{
     border-radius: 10px;
     font-family: var(--primary-font);
     font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#form_add_btn:hover{
+    scale: 1.03;
 }
 .form_closeBtn{
+    cursor: pointer;
     position: absolute;
     top: 60px;
     right: 100px;
