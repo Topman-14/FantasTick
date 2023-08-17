@@ -10,13 +10,12 @@ export default function NewItemForm(props) {
     const [desc, setDesc] = useState('');
     const {dispatch} = useItemsContext();
     const {showAlert} = useContext(AlertContext);
-    const [checked, setChecked] = useState("");
+    const ischecked = "false"
     
     
     const handleSubmit = async (e) =>{
         e.preventDefault()
-        setChecked(false)
-        const item = {title, desc, checked}
+        const item = {title, desc, ischecked}
         const res = await fetch('http://localhost:4000/api/items/', {
             method: 'POST',
             body: JSON.stringify(item),
