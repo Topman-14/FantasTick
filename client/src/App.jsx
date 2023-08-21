@@ -24,11 +24,10 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         {isRecieved && <Alert type={type} text={text}/>}
-        <Navbar handleClick={openItemForm}/>
           {isBtnClicked && <NewItemForm handleClick={closeItemForm}/>}
           <div className="pages">
             <Routes>
-              <Route path="/" element={<Home></Home>} />
+              <Route path="/" element={<Home><Navbar handleClick={openItemForm}/></Home>} />
             </Routes>
             {/* <Routes>
               <Route path="/test" element={<Landing />} />

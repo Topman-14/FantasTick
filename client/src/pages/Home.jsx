@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { useItemsContext } from '../hooks/useItemsContext'
 import Item from "../components/Item";
 
-export default function Home() {
+export default function Home({ children }) {
 
   const {items, dispatch} = useItemsContext()
 
@@ -24,6 +24,7 @@ export default function Home() {
   
   return (
     <div className='home'>
+      { children }
       { items && <h1>Welcome John Doe, You have {items? items.length : "no" } {items.length > 1? "items" : "item"} in your list!</h1>}
         <div className="items_wrapper">
          {items && items.map((item) => (<Item key={item._id} item={item}/>))}
