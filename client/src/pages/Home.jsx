@@ -8,10 +8,14 @@ export default function Home({ children }) {
 
   const {items, dispatch} = useItemsContext()
   const { user } = useAuthContext();
-
+  
   useEffect(()=>{
     const fetchItems = async () => {
-      const response = await fetch('http://localhost:4000/api/items/')
+      const response = await fetch('http://localhost:4000/api/items/', {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
       const json = await response.json();
       
       if(response.ok){
@@ -21,9 +25,14 @@ export default function Home({ children }) {
       }
     }
 
-    fetchItems();
-  }, [dispatch])
+
+    if(user){
+    fetchItems()
+  }
   
+  }, [user, dispatch])
+  
+
   return (
     <div className='home'>
       { children }

@@ -3,6 +3,7 @@ import { LiaSaveSolid } from "react-icons/lia";
 import { IoClose } from "react-icons/io5";
 import { AlertContext } from '../context/alertContext';
 import { useItemsContext } from '../hooks/useItemsContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 
 const UpdateForm = (props) => {
@@ -11,6 +12,7 @@ const UpdateForm = (props) => {
     const [desc, setDesc] = useState(props.desc)
     const [isChecked] = useState(props.ischecked)
     const {dispatch} = useItemsContext();
+    const { user } = useAuthContext();
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -19,7 +21,8 @@ const UpdateForm = (props) => {
             method: 'PATCH',
             body: JSON.stringify(item),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await res.json();
