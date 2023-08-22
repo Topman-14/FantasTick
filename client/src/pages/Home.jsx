@@ -1,11 +1,13 @@
 import React from 'react'
 import { useEffect } from "react"
-import { useItemsContext } from '../hooks/useItemsContext'
+import { useItemsContext } from '../hooks/useItemsContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 import Item from "../components/Item";
 
 export default function Home({ children }) {
 
   const {items, dispatch} = useItemsContext()
+  const { user } = useAuthContext();
 
   useEffect(()=>{
     const fetchItems = async () => {
@@ -25,7 +27,7 @@ export default function Home({ children }) {
   return (
     <div className='home'>
       { children }
-      { items && <h1>Welcome John Doe, You have {items? items.length : "no" } {items.length > 1? "items" : "item"} in your list!</h1>}
+      { items && <h1>Welcome { user && user.username.charAt(0).toUpperCase() + user.username.slice(1)}, You have {items? items.length : "no" } {items.length > 1? "items" : "item"} in your list!</h1>}
         <div className="items_wrapper">
          {items && items.map((item) => (<Item key={item._id} item={item}/>))}
         </div>

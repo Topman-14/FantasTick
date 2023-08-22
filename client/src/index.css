@@ -325,6 +325,14 @@ a{
     gap: 16px;
 }
 
+.signUpForm{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    gap: 5px;
+}
+
 @keyframes pop-down {
     0%{
         opacity: 0;
