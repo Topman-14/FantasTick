@@ -22,13 +22,13 @@ a{
 }
 .pages{
     max-width: 1200px;
-    padding: 20px;
+    padding: 80px 20px;
     margin: 0 auto;
 }
 
 .alert_body{
     position: fixed;
-    z-index: 30;
+    z-index: 50;
     top: 40px;
     left: 38%;
     right: 35%;
@@ -58,6 +58,11 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    z-index: 30;
 }
 .home_link{
     display: flex;
@@ -190,7 +195,7 @@ a{
     height: 100vh;
     background: #ffffff32;
     backdrop-filter: blur(5px);
-    z-index: 10;
+    z-index: 70;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -318,6 +323,14 @@ a{
     flex-direction: column;
     align-items: flex-end;
     gap: 16px;
+}
+
+.signUpForm{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    gap: 5px;
 }
 
 @keyframes pop-down {

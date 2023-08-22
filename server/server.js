@@ -4,6 +4,8 @@ const cors = require('cors');
 
 const listItemRoutes = require('./routes/list_item');
 
+const userRoutes = require('./routes/user');
+
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -22,6 +24,7 @@ app.use((req, res, next)=>{
 
 //routes
 app.use('/api/items', listItemRoutes);
+app.use('/api/user', userRoutes);
 
 
 //listen for requests
