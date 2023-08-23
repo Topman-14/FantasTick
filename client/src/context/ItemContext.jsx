@@ -18,11 +18,21 @@ export const itemsReducer =(state, action) => {
             }
         case 'UPDATE_ITEM':
             return{
-                items: [action.payload].concat(state.items.filter((item)=> item._id !== action.payload._id))
+                items: state.items.map(item => {
+                    if (item._id === action.payload._id) {
+                      return { ...item, ...action.payload };
+                    }
+                    return item;
+                  })
             }
         case 'TICK_ITEM':
             return{
-                items: state.items.filter((item)=> item._id !== action.payload._id).concat([action.payload])
+                items: state.items.map(item => {
+                    if (item._id === action.payload._id) {
+                      return { ...item, ...action.payload };
+                    }
+                    return item;
+                  })
             }
         default:
             return state

@@ -5,7 +5,8 @@ const mongoose = require('mongoose')
 //get all items
 const getItems = async (req, res) =>{
     try{
-        const items = await Item.find({}).sort({createdAt: -1})
+        const user_id = req.user._id
+        const items = await Item.find({ user_id }).sort({createdAt: -1})
         res.status(200).json(items)
     } catch(error){
         res.status(400).json({error: error.message})
@@ -31,7 +32,8 @@ const getItem = async (req, res) =>{
 const createItem = async (req, res) =>{
     const {title, desc, ischecked} = req.body
     try{
-        const item = await Item.create({title, desc, ischecked})
+        const user_id = req.user._id
+        const item = await Item.create({title, desc, ischecked, user_id})
         res.status(200).json(item)
     } catch(error){
         res.status(400).json({error: error.message})
