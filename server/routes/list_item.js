@@ -10,7 +10,12 @@ const {
     updateItem
         } = require('../controllers/itemController');
 
+const requireAuth = require('../middleware/requireauth')
+
+
 const router = express.Router();
+
+router.use(requireAuth)
 
 router.get('/', getItems);
 

@@ -3,19 +3,24 @@ import { SlTrash, SlPencil } from "react-icons/sl"
 import { BsCheckLg } from "react-icons/bs"
 import { AlertContext } from '../context/alertContext';
 import { useItemsContext } from '../hooks/useItemsContext';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import UpdateForm from './UpdateForm';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 
 export default function Item({ item }) {
 
   const {dispatch} = useItemsContext();
   const {showAlert} = useContext(AlertContext);
+  const { user } = useAuthContext();
 
 
   const deleteItem = async ()=>{
     const res = await fetch(`http://localhost:4000/api/items/${item._id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+      }
     })
     const json = await res.json();
 
@@ -38,7 +43,8 @@ export default function Item({ item }) {
         method: 'PATCH',
         body: JSON.stringify({ ischecked: newIsChecked }),
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${user.token}`
         }
       });
   
