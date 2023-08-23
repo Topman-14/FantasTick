@@ -144,9 +144,30 @@ a{
 }
 .home > h1{
     text-align: center;
-    margin: 35px 0 75px 0;
+    margin: 55px 0 75px 0;
     color: #034603;
     animation: fade-up 0.6s;
+}
+.empty_list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.empty_list>img{
+    height: 180px;
+    animation: fade 0.6s;
+}
+.in_wrapper{
+    box-shadow: 0 5px 11px rgba(0, 0, 0, 0.306);
+    /* float: right; */
+    display: block;
+    margin: 16px auto;
+}
+.plus_icon{
+    font-size: 1.2em;
+    margin: 0 0 -4px 0;
 }
 .items_wrapper{
     max-width: 600px;
@@ -414,5 +435,13 @@ a{
     100%{
         opacity: 1;
         transform: translateY(0px);
+    }
+}
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }

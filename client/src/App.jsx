@@ -4,7 +4,6 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Landing from './pages/Landing'
 import Signup from './pages/Signup'
-import Navbar from './components/Navbar'
 import NewItemForm from './components/NewItemForm'
 import Alert from './components/Alert'
 import { AlertContext } from './context/alertContext'
@@ -32,7 +31,7 @@ function App() {
             <Routes>
               <Route 
                 path="/dashboard" 
-                element={user ? <Home><Navbar handleClick={openItemForm}/></Home> : <Landing/>} 
+                element={user ? <Home handleClick={openItemForm} /> : <Landing/>} 
               />
 
               <Route 
