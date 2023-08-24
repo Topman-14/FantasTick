@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { BsLinkedin, BsGithub } from 'react-icons/bs';
+import { FaArrowRightLong } from 'react-icons/fa6'
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -33,19 +34,24 @@ export default function Landing() {
       </nav>
       <main id='hero'>
         <div id='hero_text'>
-          <p>Experience Productivity Redefined</p>
           <h2>Craft your Tomorrow <span>Today!</span></h2>
+          <p>Experience Productivity Redefined</p>
           <div id='cta_btns'>
             <button className="hero_login" onClick={()=>navigate('/login')}>Login</button>
-            <button className="hero_signup" onClick={()=>navigate('/signup')}>Start Ticking</button>
+            <button className="hero_signup" onClick={()=>navigate('/signup')}>Get Started<FaArrowRightLong className='right_icon'/></button>
           </div>
         </div>
         <div className='landing_img'>
           <img src="/landing_img.png" alt="business woman excited about tasks" />
         </div>
       </main>
-      <footer>
-
+      <footer className='landing_footer'>
+          <p>By Topman</p>
+          <div className='social_icons'>
+            <a href="https://github.com/Topman-14"><BsGithub className='gh_footer_icon social_hover'/></a>
+            <a href="https://www.linkedin.com/in/tope-akinkuade"><BsLinkedin className='ln_footer_icon social_hover'/></a>
+            <a href="https://www.twitter.com/Topman_14"><img src="/twitterx_bg.svg" alt="" className='social_hover'/></a>
+          </div>
       </footer>
     </div>
   )
