@@ -8,6 +8,7 @@
     --bg: #fff;
     --bg-2: #f6e8c8;
     --primary-font: 'Josefin Sans', sans-serif;
+    min-height: fit-content;
 }
 body {
     margin: 0;
@@ -58,7 +59,7 @@ a{
     scale: 1.04;
 }
 .gh_logo{
-    margin-bottom: -2px;
+    margin-bottom: -3px;
 }
 .nav_signup{
     background: var(--secondary);
@@ -123,7 +124,7 @@ a{
 #cta_btns > button{
     padding: 10px 16px;
     font-size: 1.2em;
-    border-radius: 18px;
+    border-radius: 14px;
     font-weight: 600;
     margin-top: 10px;
     cursor: pointer;
@@ -132,6 +133,10 @@ a{
 }
 #cta_btns > button:hover{
     scale: 1.05;
+}
+#cta_btns{
+    display: flex;
+    gap: 20px;
 }
 .right_icon{
     margin-bottom: -4px;
@@ -143,7 +148,6 @@ a{
     background: var(--primary);
     font-family: var(--primary-font);
     box-shadow: 0 6px 20px #037d2386;
-    margin-left: 30px;
 }
 .hero_login{
     color: var(--secondary);
@@ -618,7 +622,7 @@ a{
 .landing_footer{
     display: block;
     text-align: center;
-    padding-bottom: 100px;
+    padding-bottom: 40px;
 }
 .landing_wrapper{
     display: flex;
@@ -719,5 +723,97 @@ a{
     }
     100%{
         transform: rotate(12deg) translateY(0px);
+    }
+}
+@media (max-width: 1200px) {
+    #hero_text > p{
+        margin-top: 10px;
+    } 
+    #hero_text{
+        max-width: 400px;
+    }
+}
+@media (max-width: 640px) {
+   #cta_btns{
+    gap: 0px;
+    flex-direction: column;
+   }
+   #cta_btns > button{
+    border-radius: 10px;
+    padding: 15px 16px;
+   }
+   #hero_text > h2{
+    font-size: 3.5em;
+    line-height: 1.1em;
+    margin-bottom: 20px;
+    }
+    .landing_nav{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10%;
+        padding: 10px;
+    }
+    #hero{
+        padding: 10px 20px;
+    }
+}
+@media (max-width: 980px) {
+    #cta_btns{
+        justify-content: center;
+       }
+    #hero_text{
+        width: 100%;
+        text-align: center;
+        /* margin-bottom: 50px; */
+        padding: 40px;
+    }
+    .landing_img{
+        margin: 20px;
+    }
+    #hero{
+        justify-content: center;
+    }
+}
+@media (max-width: 980px) {
+    .gh_star span{
+        display: none;
+    }
+    .gh_star{
+        padding: 8px 9px;
+    }
+    .tw_link > img{
+        height: 25px;
+        margin: -4px -4px -8px -5px;
+    }
+    .landing_links{
+        width: fit-content;
+        gap: 25px;
+    } 
+}
+@media (max-width: 360px) {
+    #hero_text >h2{
+        font-size: 2.3em;
+    }
+    #hero_text{
+        padding: 20px 10px;
+    }
+    .landing_links{
+        margin-top: 10px;
+        margin-left: -20px;
+        gap:5%;
+    }
+    .landing_nav{
+        padding: 10px 0;
+        justify-content: center;
+    }
+    .landing_img{
+        min-width: 200px;
+        height: 200px;
+    }
+    .landing_img > img{
+        width: 100%;
+    }
+    #hero{
+        padding: 0;
     }
 }
