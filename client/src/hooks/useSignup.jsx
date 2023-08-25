@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {useAuthContext} from './useAuthContext'
 import { useNavigate } from 'react-router-dom'
+import { AlertContext } from '../context/alertContext';
 
 export const useSignup = () =>{
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const { dispatch } = useAuthContext()
     const navigate = useNavigate()
+    const {showAlert} = useContext(AlertContext);
 
     const signup = async (username, email, password) => {
         setIsLoading(true)
@@ -21,7 +23,7 @@ export const useSignup = () =>{
 
         if(!response.ok){
             setIsLoading(false)
-            setError(json.error)
+            showAlert("error", json.error)
         }
         if(response.ok) {
             localStorage.setItem('user', JSON.stringify(json))
