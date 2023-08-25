@@ -32,6 +32,7 @@ a{
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    animation: fade 0.8s;
 }
 .landing_links{
     display: flex;
@@ -89,7 +90,7 @@ a{
     justify-content: space-between;
     align-items: center;
     padding: 10px 100px;
-    margin-top: 50px;
+    /* margin-top: 4%; */
     flex-wrap: wrap;
 }
 .landing_img{
@@ -98,6 +99,7 @@ a{
     background: linear-gradient(90deg, #d9ff00, #8cf480);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.178);
     height: 300px;
+    animation: fade-up 1s;
 }
 .landing_img> img{
     height: 100%;
@@ -107,11 +109,13 @@ a{
     max-width: 600px;
 }
 #hero_text> h2{
+    animation: fade-up 0.8s;
     font-size: 4.2em;
     margin: 0;
     color: #053f0b;
 }
 #hero_text >p{
+    animation: fade-up 0.8s;
     color: maroon;
     padding-left: 7px;
     margin: 0 0 10px 0 ;
@@ -124,6 +128,7 @@ a{
     margin-top: 10px;
     cursor: pointer;
     transition: 0.2s;
+    animation: fade-up 1s ease-out;
 }
 #cta_btns > button:hover{
     scale: 1.05;
@@ -189,6 +194,12 @@ a{
     display: flex;
     /* justify-content: center; */
     align-items: center;
+}
+.landing_nav > .home_link{
+    font-size: 1.3em;
+}
+.signUpForm > .home_link{
+    animation: fade 1s;
 }
 .add_item_btn{
     background: #3c9f0e;
@@ -523,16 +534,18 @@ a{
     max-height: 800px;
     /* margin-left: 20px; */
 }
-.signUpForm h3{
+.form_headings{
     margin: 0 0 5px 0;
     font-size: 2.5em;
     color: #07330b;
+    animation: fade-up 0.8s;
 }
 .signup_field{
     display: flex;
     flex-direction: column;
     gap: 5px;
     font-size: 1.1em;
+    animation: fade-up 1.2s;
 }
 .signup_field input{
     padding: 8px 5px 5px 7px;
@@ -562,6 +575,7 @@ a{
     font-weight: 600;
     transition: 0.2s;
     box-shadow: 0 5px 11px #28a1037d;
+    animation: fade-up 1.2s;
 }
 .signup_frm_btn:hover{
     scale: 1.03;
@@ -569,10 +583,11 @@ a{
 .signup_img{
     height: 70%;
     margin-right: 100px;
-    transform: rotate(15deg);
+    animation: hover 20s infinite ease-in-out;
 }
 .login_redirect{
     text-align: center;
+    animation: fade 1s;
 }
 .login_redirect > a{
     text-decoration: underline;
@@ -601,12 +616,48 @@ a{
     scale:1.1;
 }
 .landing_footer{
-    margin-top: 35px;
+    display: block;
     text-align: center;
+    padding-bottom: 100px;
+}
+.landing_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 .landing_footer > p{
     margin: 15px 0;
     text-decoration: underline;
+}
+.LoginForm{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 20px;
+    background: #ffffff74;
+    padding: 25px 25px 30px 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(4px); 
+    box-shadow: 0 5px 11px#00000026;
+}
+.LoginForm .signup_field, .LoginForm .signup_frm_btn{
+    animation: none;
+}
+.login_heading{
+    text-align: center;
+    font-size: 1.2em;
+    margin: 0;
+}
+.login_wrapper{
+    animation: fade-up 0.8s;
+}
+.login_wrapper a{
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 @keyframes pop-down {
@@ -657,5 +708,16 @@ a{
     }
     100%{
         opacity: 1;
+    }
+}
+@keyframes hover {
+    0%{
+        transform: rotate(12deg) translateY(0px);
+    }
+    50%{
+        transform: rotate(20deg) translateY(10px);
+    }
+    100%{
+        transform: rotate(12deg) translateY(0px);
     }
 }

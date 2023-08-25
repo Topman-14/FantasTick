@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {useAuthContext} from './useAuthContext'
 import { useNavigate } from 'react-router-dom'
+import { AlertContext } from '../context/alertContext';
 
 export const useLogin = () =>{
-    const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const { dispatch } = useAuthContext()
     const navigate = useNavigate()
+    const {showAlert} = useContext(AlertContext);
 
     const login = async (email, password) => {
         setIsLoading(true)
-        setError(null)
 
         const response = await fetch('http://localhost:4000/api/user/login', {
             method: 'POST',
@@ -21,7 +21,7 @@ export const useLogin = () =>{
 
         if(!response.ok){
             setIsLoading(false)
-            setError(json.error)
+            showAlert("error", json.error)
         }
         if(response.ok) {
             localStorage.setItem('user', JSON.stringify(json))
@@ -31,5 +31,5 @@ export const useLogin = () =>{
         }
     }
 
-    return {login, isLoading, error}
+    return {login, isLoading}
 }

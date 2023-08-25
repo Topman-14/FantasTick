@@ -8,7 +8,6 @@ export default function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [cpassword, setCpassword] = useState('')
-    // const [clientError, setClientError] = useState()
     const {signup, error, isLoading} = useSignup()
     const {showAlert} = useContext(AlertContext);
     
@@ -36,11 +35,11 @@ export default function Signup() {
               max-width: none;
             }
         `}</style>
-          <div className='home_link'>
+          <a href='/' className='home_link'>
             <h1><span>Fantas</span>Tick</h1> 
             <img className="logo" src="/fantastick_logo.png" alt="" /> 
-          </div>
-          <h3>Create your Account</h3>
+          </a>
+          <h3 className='form_headings'>Create your Account</h3>
           <div className="signup_field">
             <label>Username:</label>
             <input type="text" onChange={(e)=> setUsername(e.target.value)} value={username} required={true}/>

@@ -6,10 +6,13 @@ import { FaArrowRightLong } from 'react-icons/fa6'
 export default function Landing() {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className='landing_wrapper'>
       <style>
         {`.pages{
             padding: 0;
+            max-width: none;
+            margin-inline: 30px;
+            height: 100vh;
           }
           body{
             height: 100vh;
@@ -17,10 +20,10 @@ export default function Landing() {
           }
       `}</style>
       <nav className='landing_nav'>
-        <div className='home_link'>
+        <a href="/" className='home_link'>
           <h1><span>Fantas</span>Tick</h1> 
           <img className="logo" src="/fantastick_logo.png" alt="" /> 
-        </div>
+        </a>
         <div className='landing_links'>
 
           <a className='gh_star' href="https://github.com/Topman-14/FantasTick/"><BsGithub className='gh_logo'/>  Star this Repo🤩</a>
