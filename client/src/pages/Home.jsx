@@ -46,7 +46,7 @@ export default function Home(props) {
 
           {(items && items.length == 0)? 
           <div className='empty_list'>
-            <img src='/void.svg' alt='no results'/> 
+            <img src='/void2.png' alt='no results'/> 
           </div>: ""}
 
           {items && <button onClick={props.handleClick} className='add_item_btn in_wrapper' style={(items.length == 0)? {} : {float: "right", margin:"0"}}>Add a new Item <HiPlus className='plus_icon'/> </button> }

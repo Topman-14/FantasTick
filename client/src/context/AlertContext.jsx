@@ -10,7 +10,7 @@ class AlertContextProvider extends Component {
      }
     showAlert = (type, text) =>{
         this.setState({isRecieved: true, type: type, text: text})
-        setTimeout(()=>{this.setState({isRecieved: false})}, 3400)
+        setTimeout(()=>{this.setState({isRecieved: false})}, 2500)
     } 
     render() { 
         return (
