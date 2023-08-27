@@ -40,8 +40,8 @@ export default function Landing() {
           <h2>Craft your Tomorrow <span>Today!</span></h2>
           <p>Experience Productivity Redefined</p>
           <div id='cta_btns'>
-            <button className="hero_login" onClick={()=>navigate('/login')}>Login</button>
             <button className="hero_signup" onClick={()=>navigate('/signup')}>Get Started<FaArrowRightLong className='right_icon'/></button>
+            <button className="hero_login" onClick={()=>navigate('/login')}>Login</button>
           </div>
         </div>
         <div className='landing_img'>

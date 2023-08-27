@@ -528,14 +528,18 @@ a{
     align-items: center;
     justify-content: space-between;
 }
+.signUpForm .login_redirect{
+    line-height :1.2em ;
+}
 .signUpForm{
-    height: 90%;
+    height: 85%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     gap: 5px;
+    font-size: 0.95em;
     border-radius: 15px;
-    max-height: 800px;
+    max-height: 550px;
     /* margin-left: 20px; */
 }
 .form_headings{
@@ -548,8 +552,16 @@ a{
     display: flex;
     flex-direction: column;
     gap: 5px;
-    font-size: 1.1em;
     animation: fade-up 1.2s;
+}
+.signUpForm .signup_field{
+    margin-top: 15px;
+}
+.signUpForm .signup_frm_btn{
+    margin-top: 15px;
+}
+.signUpForm .form_headings{
+    margin: 10px 0;
 }
 .signup_field input{
     padding: 8px 5px 5px 7px;
@@ -595,6 +607,9 @@ a{
 }
 .login_redirect > a{
     text-decoration: underline;
+}
+.remove_margin{
+    margin: 0;
 }
 .social_icons{
     display: flex;
@@ -756,6 +771,9 @@ a{
     #hero{
         padding: 10px 20px;
     }
+    .nav_login, .nav_signup{
+        display: none;
+    }
 }
 @media (max-width: 980px) {
     #cta_btns{
@@ -790,6 +808,11 @@ a{
         gap: 25px;
     } 
 }
+@media (max-width: 460px) {
+    #hero_text >h2{
+        font-size: 2.5em;
+    }
+}
 @media (max-width: 360px) {
     #hero_text >h2{
         font-size: 2.3em;
@@ -800,7 +823,8 @@ a{
     .landing_links{
         margin-top: 10px;
         margin-left: -20px;
-        gap:5%;
+        gap:20%;
+        padding: 0 20px;
     }
     .landing_nav{
         padding: 10px 0;
@@ -816,4 +840,20 @@ a{
     #hero{
         padding: 0;
     }
+}
+@media (max-width: 1020px) {
+   .signup_img{
+    display: none;
+   }
+   .signup_main{
+    justify-content: center;
+    align-items: flex-start;
+    /* padding-top: 50px; */
+   }
+}
+@media (min-width: 1020px) {
+   .signup_main{
+    padding: 30px;
+    margin: auto 0;
+   }
 }
