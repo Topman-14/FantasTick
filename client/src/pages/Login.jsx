@@ -22,7 +22,8 @@ export default function Login() {
             {`body{
               min-height: 100vh;
               }
-              `}</style>
+              `}
+        </style>
           <h3 className='login_heading'>Welcome Back!</h3>
           <div className="signup_field">
             <label>Email:</label>

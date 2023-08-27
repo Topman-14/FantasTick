@@ -46,7 +46,8 @@ const UpdateForm = (props) => {
                     <input type="text" onChange={(e)=>setTitle(e.target.value)} value={title}/>
                 </div>
                 <div>
-                    <label>Description</label>
+                    <label className='desc_label'>Description</label>
+                    <label className='label_mobile'>Desc.</label>
                     <input type="text" onChange={(e)=>setDesc(e.target.value)} value={desc}/>
                 </div>
             </div> 
