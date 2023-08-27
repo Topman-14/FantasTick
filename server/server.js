@@ -27,10 +27,12 @@ app.use('/api/items', listItemRoutes);
 app.use('/api/user', userRoutes);
 
 
-//listen for requests
-app.listen(process.env.PORT, ()=>{
-    console.log("Hello you're connected to the db ",process.env.PORT);
-})
+const PORT = process.env.PORT || 3000;
+
+
+app.listen(PORT, "localhost", () => {
+    console.log("Server listening on localhost:" + PORT);
+});
 
 
 // connect to db

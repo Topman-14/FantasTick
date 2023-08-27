@@ -26,13 +26,16 @@ export default function Signup() {
       <form className="signUpForm" onSubmit={handleSubmit}>
         <style>
           {`body{
-              height: 100vh;
-              background: url('/test2.svg') left bottom / cover no-repeat;
+              min-height: 100vh;
+              background: url('/test2.svg') center bottom / cover no-repeat;
             }
             .pages{
-              padding: 0 80px;
-              height: 100vh;
+              padding: 0 20px;
+              min-height: 100vh;
               max-width: none;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
             }
         `}</style>
           <a href='/' className='home_link'>
@@ -57,7 +60,7 @@ export default function Signup() {
             <input type="password" onChange={(e)=> setCpassword(e.target.value)} value={cpassword} required={true}/>
           </div>
           <button className='signup_frm_btn' style={isLoading?{cursor:"wait", background:"#8a8a8a"}:{}}>{isLoading? 'Loading...' : 'Start Ticking !'}</button>
-          <p className='login_redirect'>Already have an account? <a href='/login'>Login Instead</a></p>
+          <p className='login_redirect'>Already have an account? <br/> <a href='/login'>Login Instead</a></p>
       </form>
       <img src="/signup_img2.png" alt="3d woman smiling with finished checklist" className='signup_img'/>
     </div>

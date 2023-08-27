@@ -37,6 +37,12 @@ export default function Home(props) {
 
   return (
     <div className='home'>
+      <style>
+            {`.pages{
+              min-height: 100vh;
+              }
+              `}
+        </style>
       <Navbar handleClick={props.handleClick}/>
       { items && <h1>Welcome { user && user.username.charAt(0).toUpperCase() + user.username.slice(1)}, You have {items.length > 0? items.length : "no" } {items.length > 1? "items" : "item"} in your list!</h1>}
 

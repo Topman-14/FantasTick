@@ -20,8 +20,10 @@ export default function Login() {
       <form className="LoginForm" onSubmit={handleSubmit}>
         <style>
             {`body{
+              min-height: 100vh;
               }
-              `}</style>
+              `}
+        </style>
           <h3 className='login_heading'>Welcome Back!</h3>
           <div className="signup_field">
             <label>Email:</label>
@@ -32,6 +34,7 @@ export default function Login() {
             <input type="password" onChange={(e)=> setPassword(e.target.value)} value={password} />
           </div>
           <button className='signup_frm_btn' style={isLoading?{cursor:"wait", background:"#8a8a8a"}:{}}>{isLoading? 'Loading...' : 'Continue'}</button>
+          <p className='login_redirect remove_margin'>Don't have an account? <a href='/signup'>Create one here✨</a></p>
       </form>
     </main>
   )
