@@ -1,6 +1,7 @@
 import React, { createContext, Component } from 'react'
 
 export const AlertContext = createContext();
+let alertTimeout = null;
 
 class AlertContextProvider extends Component {
     state = { 
@@ -10,7 +11,10 @@ class AlertContextProvider extends Component {
      }
     showAlert = (type, text) =>{
         this.setState({isRecieved: true, type: type, text: text})
-        setTimeout(()=>{this.setState({isRecieved: false})}, 2500)
+        if (alertTimeout){
+            clearTimeout(alertTimeout)
+        }
+        alertTimeout = setTimeout(()=>{this.setState({isRecieved: false})}, 2500)
     } 
     render() { 
         return (
