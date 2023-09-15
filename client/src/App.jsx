@@ -6,7 +6,7 @@ import Landing from './pages/Landing'
 import Signup from './pages/Signup'
 import NewItemForm from './components/NewItemForm'
 import Alert from './components/Alert'
-import { AlertContext } from './context/alertContext'
+import { AlertContext } from './context/AlertContext'
 import { useAuthContext } from './hooks/useAuthContext'
 
 function App() {

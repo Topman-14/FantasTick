@@ -12,7 +12,6 @@ export default function Landing() {
             padding: 0;
             max-width: none;
             margin-inline: 30px;
-            min-height: 100vh;
           }
           body{
             min-height: 100vh;

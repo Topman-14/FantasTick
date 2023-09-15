@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import {useAuthContext} from './useAuthContext'
 import { useNavigate } from 'react-router-dom'
-import { AlertContext } from '../context/alertContext';
+import { AlertContext } from '../context/AlertContext';
 
 export const useLogin = () =>{
     const [isLoading, setIsLoading] = useState(false)

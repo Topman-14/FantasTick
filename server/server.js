@@ -27,7 +27,7 @@ app.use('/api/items', listItemRoutes);
 app.use('/api/user', userRoutes);
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 
 app.listen(PORT, "localhost", () => {
@@ -37,7 +37,9 @@ app.listen(PORT, "localhost", () => {
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
-    .then(()=>{})
+    .then(()=>{
+        console.log("connected to DB")
+    })
     .catch((err)=>{
         console.log(err);
     })

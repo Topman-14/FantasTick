@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useContext } from "react"
 import { IoClose } from "react-icons/io5";
 import { useItemsContext } from '../hooks/useItemsContext';
-import { AlertContext } from '../context/alertContext';
+import { AlertContext } from '../context/AlertContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 

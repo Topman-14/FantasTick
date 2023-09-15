@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { useSignup } from "../hooks/useSignup"
-import { AlertContext } from '../context/alertContext';
+import { AlertContext } from '../context/AlertContext';
 
 
 export default function Signup() {

@@ -1,7 +1,7 @@
 import {React, useContext, useState} from 'react'
 import { SlTrash, SlPencil } from "react-icons/sl"
 import { BsCheckLg } from "react-icons/bs"
-import { AlertContext } from '../context/alertContext';
+import { AlertContext } from '../context/AlertContext';
 import { useItemsContext } from '../hooks/useItemsContext';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import UpdateForm from './UpdateForm';

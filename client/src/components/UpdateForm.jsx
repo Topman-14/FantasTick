@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { LiaSaveSolid } from "react-icons/lia";
 import { IoClose } from "react-icons/io5";
-import { AlertContext } from '../context/alertContext';
+import { AlertContext } from '../context/AlertContext';
 import { useItemsContext } from '../hooks/useItemsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
