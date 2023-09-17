@@ -30,14 +30,14 @@ app.use('/api/user', userRoutes);
 const PORT = process.env.PORT || 4000;
 
 
-app.listen(PORT, "localhost", () => {
-    console.log("Server listening on localhost:" + PORT);
-});
-
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
+        app.listen(PORT, () => {
+            console.log("Server listening on localhost:" + PORT);
+        });
+
         console.log("connected to DB")
     })
     .catch((err)=>{
