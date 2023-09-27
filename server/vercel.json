@@ -12,5 +12,5 @@
         "dest": "/"
       }
     ],
-    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+    "rewrites": [{ "source": "/(.*)", "destination": "/" }, { "source": "/login", "destination": "/login" }, { "source": "/signup", "destination": "/signup" }]
   }
