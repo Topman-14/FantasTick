@@ -224,6 +224,12 @@ a{
 .add_item_btn:hover{
     scale: 1.07;
 }
+.show_pword{
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+}
 .home_link >  h1{
     padding: 15px 10px 15px 18px;
     margin: 0px 0px;
@@ -562,6 +568,7 @@ a{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    position: relative;
     animation: fade-up 1.2s;
 }
 .signUpForm .signup_field{

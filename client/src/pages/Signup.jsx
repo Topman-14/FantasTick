@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useSignup } from "../hooks/useSignup"
 import { AlertContext } from '../context/AlertContext';
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 
 export default function Signup() {
@@ -10,6 +11,7 @@ export default function Signup() {
     const [cpassword, setCpassword] = useState('')
     const {signup, error, isLoading} = useSignup()
     const {showAlert} = useContext(AlertContext);
+    const [showPassword, setShowPassword] = useState(false)
     
 
     const handleSubmit = async (e) => {
@@ -53,11 +55,17 @@ export default function Signup() {
           </div>
           <div className="signup_field">
             <label>Password:</label>
-            <input type="password" onChange={(e)=> setPassword(e.target.value)} value={password} required={true} minLength={8} placeholder='Minimum of 8 characters'/>
+            <input type={showPassword ? "text" : "password"} onChange={(e)=> setPassword(e.target.value)} value={password} required={true} minLength={8} placeholder='Minimum of 8 characters'/>
+            <div className='show_pword' onClick={() => setShowPassword((prevState)=> !prevState)}>
+              {!showPassword? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            </div>
           </div>
           <div className="signup_field">
             <label>Confirm Password:</label>
-            <input type="password" onChange={(e)=> setCpassword(e.target.value)} value={cpassword} required={true}/>
+            <input type={showPassword ? "text" : "password"} onChange={(e)=> setCpassword(e.target.value)} value={cpassword} required={true}/>
+            <div className='show_pword' onClick={() => setShowPassword((prevState)=> !prevState)}>
+              {!showPassword? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            </div>
           </div>
           <button className='signup_frm_btn' style={isLoading?{cursor:"wait", background:"#8a8a8a"}:{}}>{isLoading? 'Loading...' : 'Start Ticking !'}</button>
           <p className='login_redirect'>Already have an account? <br/> <a href='/login'>Login Instead</a></p>

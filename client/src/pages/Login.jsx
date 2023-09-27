@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { useLogin } from '../hooks/useLogin'
+import { useLogin } from '../hooks/useLogin';
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+
 
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const {login, isLoading} = useLogin()
+    const [showPassword, setShowPassword] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -31,10 +34,12 @@ export default function Login() {
           </div>
           <div className="signup_field">
             <label>Password:</label>
-            <input type="password" onChange={(e)=> setPassword(e.target.value)} value={password} />
+            <input type={showPassword ? "text" : "password"} onChange={(e)=> setPassword(e.target.value)} value={password} />
+            <div className='show_pword' onClick={() => setShowPassword((prevState)=> !prevState)}>
+              {!showPassword? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            </div>
           </div>
-          <button className='signup_frm_btn' style={isLoading?{cursor:"wait", background:"#8a8a8a"}:{}}>{isLoading? 'Loading...' : 'Continue'}</button>
-          <p className='login_redirect remove_margin'>Don't have an account? <a href='/signup'>Create one here✨</a></p>
+            <button className='signup_frm_btn' style={isLoading ? { cursor: "wait", background: "#8a8a8a" } : {}}>{isLoading ? 'Loading...' : 'Continue'}</button><p className='login_redirect remove_margin'>Don't have an account? <a href='/signup'>Create one here✨</a></p>
       </form>
     </main>
   )

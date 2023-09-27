@@ -19,7 +19,7 @@ export default function Landing() {
           }
       `}</style>
       <nav className='landing_nav'>
-        <a href="/" className='home_link'>
+        <a className='home_link'>
           <h1><span>Fantas</span>Tick</h1> 
           <img className="logo" src="/fantastick_logo.png" alt="" /> 
         </a>
