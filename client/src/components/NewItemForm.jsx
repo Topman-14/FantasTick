@@ -21,8 +21,9 @@ export default function NewItemForm(props) {
         if(!user){
             showAlert("error", "You must be logged in!")
             return
+        } else{
+            showAlert("loading", "Please wait...")
         }
-
         const item = {title, desc, ischecked}
         const res = await fetch('https://fantastick-api.vercel.app/api/items/', {
             method: 'POST',

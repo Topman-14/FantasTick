@@ -16,6 +16,9 @@ const UpdateForm = (props) => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
+        if(user){
+            showAlert("loading", "Please wait...")
+        }
         const item = {title, desc, isChecked}
         const res = await fetch(`https://fantastick-api.vercel.app/api/items/${props.id}`, {
             method: 'PATCH',

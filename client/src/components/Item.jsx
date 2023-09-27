@@ -16,6 +16,11 @@ export default function Item({ item }) {
 
 
   const deleteItem = async ()=>{
+
+    if(user){
+      showAlert("loading", "Please wait...")
+    }
+
     const res = await fetch(`https://fantastick-api.vercel.app/api/items/${item._id}`, {
         method: 'DELETE',
         headers: {
@@ -36,6 +41,11 @@ export default function Item({ item }) {
   const [ischecked, setischecked] = useState(item.ischecked)
   
   const tickItem = async () => {
+    
+    if(user){
+      showAlert("loading", "Please wait...")
+    }
+
     const newIsChecked = ischecked === "true" ? "false" : "true";
   
     try {

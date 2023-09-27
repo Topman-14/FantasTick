@@ -1,15 +1,17 @@
 import React from 'react'
-import { useEffect } from "react"
+import { useEffect, useContext } from "react"
 import { useItemsContext } from '../hooks/useItemsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import Item from "../components/Item";
 import Navbar from '../components/Navbar'
 import { HiPlus } from "react-icons/hi";
+import { AlertContext } from '../context/AlertContext';
 
 export default function Home(props) {
 
   const {items, dispatch} = useItemsContext()
   const { user } = useAuthContext();
+  const {showAlert} = useContext(AlertContext);
   
   useEffect(()=>{
     const fetchItems = async () => {
@@ -29,12 +31,12 @@ export default function Home(props) {
 
 
     if(user){
+    showAlert("loading", "Loading...")
     fetchItems()
   }
   
   }, [user, dispatch])
   
-
   return (
     <div className='home'>
       <style>
