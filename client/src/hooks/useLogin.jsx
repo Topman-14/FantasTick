@@ -12,7 +12,7 @@ export const useLogin = () =>{
     const login = async (email, password) => {
         setIsLoading(true)
 
-        const response = await fetch('http://localhost:4000/api/user/login', {
+        const response = await fetch('https://fantastick-api.vercel.app/api/user/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, password})

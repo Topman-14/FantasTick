@@ -17,7 +17,7 @@ const UpdateForm = (props) => {
     const handleSubmit = async (e) =>{
         e.preventDefault()
         const item = {title, desc, isChecked}
-        const res = await fetch(`http://localhost:4000/api/items/${props.id}`, {
+        const res = await fetch(`https://fantastick-api.vercel.app/api/items/${props.id}`, {
             method: 'PATCH',
             body: JSON.stringify(item),
             headers: {

@@ -16,7 +16,7 @@ export default function Item({ item }) {
 
 
   const deleteItem = async ()=>{
-    const res = await fetch(`http://localhost:4000/api/items/${item._id}`, {
+    const res = await fetch(`https://fantastick-api.vercel.app/api/items/${item._id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${user.token}`
@@ -39,7 +39,7 @@ export default function Item({ item }) {
     const newIsChecked = ischecked === "true" ? "false" : "true";
   
     try {
-      const res = await fetch(`http://localhost:4000/api/items/${item._id}`, {
+      const res = await fetch(`https://fantastick-api.vercel.app/api/items/${item._id}`, {
         method: 'PATCH',
         body: JSON.stringify({ ischecked: newIsChecked }),
         headers: {

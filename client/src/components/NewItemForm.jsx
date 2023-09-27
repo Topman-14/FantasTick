@@ -24,7 +24,7 @@ export default function NewItemForm(props) {
         }
 
         const item = {title, desc, ischecked}
-        const res = await fetch('http://localhost:4000/api/items/', {
+        const res = await fetch('https://fantastick-api.vercel.app/api/items/', {
             method: 'POST',
             body: JSON.stringify(item),
             headers: {
