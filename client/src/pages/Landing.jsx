@@ -27,7 +27,7 @@ export default function Landing() {
 
           <a className='gh_star' href="https://github.com/Topman-14/FantasTick/"><BsGithub className='gh_logo'/><span> Star this Repo🤩</span></a>
 
-          <a href="http://" className='tw_link gh_star'>
+          <a href="https://twitter.com/Topman_14/status/1708607426713313310" className='tw_link gh_star'>
             <img src="/twitterx.svg" alt="" /><span>Review on Twitter</span></a>
 
           <div className="nav_login" onClick={()=>navigate('/login')} tabIndex={2}>Login</div>
